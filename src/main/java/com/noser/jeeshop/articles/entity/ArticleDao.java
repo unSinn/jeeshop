@@ -15,6 +15,10 @@ public class ArticleDao {
     return em.createNamedQuery("Article.getAll", Article.class).getResultList();
   }
 
+  public List<Article> getList(List<Long> articleIds) {
+    return em.createNamedQuery("Article.getList", Article.class).setParameter("ids", articleIds).getResultList();
+  }
+
   public Article find(Long id) {
     return em.createNamedQuery("Article.findOne", Article.class).setParameter("id", id).getSingleResult();
   }

@@ -5,7 +5,8 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "Article.findOne", query = "select a from Article a where a.id = :id"),
-    @NamedQuery(name = "Article.getAll", query = "select a from Article a")
+    @NamedQuery(name = "Article.getAll", query = "select a from Article a"),
+    @NamedQuery(name = "Article.getList", query = "SELECT a FROM Article a WHERE a.id IN :ids")
 })
 public class Article {
 
@@ -13,14 +14,14 @@ public class Article {
   @GeneratedValue
   public long id;
   public String name;
-  public String lastName;
+  public String description;
 
   public Article() {
   }
 
-  public Article(String name, String lastName) {
+  public Article(String name, String description) {
     this.name = name;
-    this.lastName = lastName;
+    this.description = description;
   }
 
 }

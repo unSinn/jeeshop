@@ -55,9 +55,22 @@
             <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>jeeshop</finalName>
+        <!-- From https://stackoverflow.com/questions/52312764/how-to-have-jpa-with-hibernate-provider-auto-scan-for-entity-classes -->
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
     </build>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
